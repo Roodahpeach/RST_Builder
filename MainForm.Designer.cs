@@ -30,8 +30,8 @@ namespace RST_File_Generator
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.BT_struct_enum = new MaterialSkin.Controls.MaterialRaisedButton();
             this.BT_function = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BT_struct_enum = new MaterialSkin.Controls.MaterialRaisedButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,19 @@ namespace RST_File_Generator
             this.tableLayoutPanel1.Size = new System.Drawing.Size(469, 376);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // BT_function
+            // 
+            this.BT_function.Depth = 0;
+            this.BT_function.Location = new System.Drawing.Point(237, 3);
+            this.BT_function.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BT_function.Name = "BT_function";
+            this.BT_function.Primary = true;
+            this.BT_function.Size = new System.Drawing.Size(228, 88);
+            this.BT_function.TabIndex = 0;
+            this.BT_function.Text = "Function Form Generator";
+            this.BT_function.UseVisualStyleBackColor = true;
+            this.BT_function.Click += new System.EventHandler(this.BT_function_Click);
+            // 
             // BT_struct_enum
             // 
             this.BT_struct_enum.Depth = 0;
@@ -65,19 +78,6 @@ namespace RST_File_Generator
             this.BT_struct_enum.UseVisualStyleBackColor = true;
             this.BT_struct_enum.Click += new System.EventHandler(this.Main_BT_struct_enum_Click);
             // 
-            // BT_function
-            // 
-            this.BT_function.Depth = 0;
-            this.BT_function.Location = new System.Drawing.Point(237, 3);
-            this.BT_function.MouseState = MaterialSkin.MouseState.HOVER;
-            this.BT_function.Name = "BT_function";
-            this.BT_function.Primary = true;
-            this.BT_function.Size = new System.Drawing.Size(228, 88);
-            this.BT_function.TabIndex = 1;
-            this.BT_function.Text = "Function Form Generator";
-            this.BT_function.UseVisualStyleBackColor = true;
-            this.BT_function.Click += new System.EventHandler(this.BT_function_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -85,7 +85,7 @@ namespace RST_File_Generator
             this.ClientSize = new System.Drawing.Size(493, 523);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MainForm";
-            this.Text = "RST_File_Generator V0.01";
+            this.Text = "RST_File_Generator V0.02";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

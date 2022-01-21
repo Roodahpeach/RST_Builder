@@ -117,7 +117,7 @@ namespace RST_File_Generator
 
                     if(header == "SYNOPSIS")
                     {
-                        if(Document_Type == "struct")
+                        if(Document_Type == "struct" || Document_Type == "union")
                         {
                             RST_File_Writer.WriteLine("+-----------+------+---------+");
                             RST_File_Writer.WriteLine("| Parameter | Type | Meaning |");

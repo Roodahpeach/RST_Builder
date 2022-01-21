@@ -32,32 +32,32 @@ namespace RST_File_Generator
             this.components = new System.ComponentModel.Container();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CB_doctype = new System.Windows.Forms.ComboBox();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.CB_prefix = new System.Windows.Forms.ComboBox();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.CB_doctype = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.TF_Header5 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.TF_Header4 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.TF_Header3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.TF_Header2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.TF_Header1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.TF_Header2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.TF_Header3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.TF_Header4 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.TF_Header5 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.TF_objectname = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.BT_Generate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.ObjectNameTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.CheckBox_Warning = new System.Windows.Forms.CheckBox();
-            this.Checkbox_note = new System.Windows.Forms.CheckBox();
             this.Checkbox_seealso = new System.Windows.Forms.CheckBox();
+            this.Checkbox_note = new System.Windows.Forms.CheckBox();
+            this.CheckBox_Warning = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -93,34 +93,6 @@ namespace RST_File_Generator
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Options";
             // 
-            // CB_doctype
-            // 
-            this.CB_doctype.Cursor = System.Windows.Forms.Cursors.Default;
-            this.CB_doctype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_doctype.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CB_doctype.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.CB_doctype.Items.AddRange(new object[] {
-            "enum",
-            "struct"});
-            this.CB_doctype.Location = new System.Drawing.Point(129, 16);
-            this.CB_doctype.Name = "CB_doctype";
-            this.CB_doctype.Size = new System.Drawing.Size(134, 20);
-            this.CB_doctype.TabIndex = 2;
-            // 
-            // materialLabel2
-            // 
-            this.materialLabel2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(6, 62);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(117, 19);
-            this.materialLabel2.TabIndex = 3;
-            this.materialLabel2.Text = "Product Prefix";
-            this.materialLabel2.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
             // CB_prefix
             // 
             this.CB_prefix.Cursor = System.Windows.Forms.Cursors.Default;
@@ -136,6 +108,35 @@ namespace RST_File_Generator
             this.CB_prefix.Size = new System.Drawing.Size(134, 20);
             this.CB_prefix.TabIndex = 4;
             // 
+            // materialLabel2
+            // 
+            this.materialLabel2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(6, 62);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(117, 19);
+            this.materialLabel2.TabIndex = 3;
+            this.materialLabel2.Text = "Product Prefix";
+            this.materialLabel2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // CB_doctype
+            // 
+            this.CB_doctype.Cursor = System.Windows.Forms.Cursors.Default;
+            this.CB_doctype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_doctype.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CB_doctype.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.CB_doctype.Items.AddRange(new object[] {
+            "enum",
+            "struct",
+            "union"});
+            this.CB_doctype.Location = new System.Drawing.Point(129, 16);
+            this.CB_doctype.Name = "CB_doctype";
+            this.CB_doctype.Size = new System.Drawing.Size(134, 20);
+            this.CB_doctype.TabIndex = 2;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tableLayoutPanel1);
@@ -146,35 +147,6 @@ namespace RST_File_Generator
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Paragraph Header";
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(3, 14);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(74, 19);
-            this.materialLabel3.TabIndex = 1;
-            this.materialLabel3.Text = "Header 1";
-            this.materialLabel3.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // materialLabel4
-            // 
-            this.materialLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialLabel4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(3, 61);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(74, 19);
-            this.materialLabel4.TabIndex = 3;
-            this.materialLabel4.Text = "Header 2";
-            this.materialLabel4.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // tableLayoutPanel1
             // 
@@ -206,6 +178,100 @@ namespace RST_File_Generator
             this.tableLayoutPanel1.Size = new System.Drawing.Size(253, 239);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
+            // TF_Header5
+            // 
+            this.TF_Header5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TF_Header5.Depth = 0;
+            this.TF_Header5.Hint = "";
+            this.TF_Header5.Location = new System.Drawing.Point(109, 202);
+            this.TF_Header5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TF_Header5.Name = "TF_Header5";
+            this.TF_Header5.PasswordChar = '\0';
+            this.TF_Header5.SelectedText = "";
+            this.TF_Header5.SelectionLength = 0;
+            this.TF_Header5.SelectionStart = 0;
+            this.TF_Header5.Size = new System.Drawing.Size(113, 23);
+            this.TF_Header5.TabIndex = 11;
+            this.TF_Header5.UseSystemPasswordChar = false;
+            // 
+            // TF_Header4
+            // 
+            this.TF_Header4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TF_Header4.Depth = 0;
+            this.TF_Header4.Hint = "";
+            this.TF_Header4.Location = new System.Drawing.Point(109, 153);
+            this.TF_Header4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TF_Header4.Name = "TF_Header4";
+            this.TF_Header4.PasswordChar = '\0';
+            this.TF_Header4.SelectedText = "";
+            this.TF_Header4.SelectionLength = 0;
+            this.TF_Header4.SelectionStart = 0;
+            this.TF_Header4.Size = new System.Drawing.Size(113, 23);
+            this.TF_Header4.TabIndex = 10;
+            this.TF_Header4.UseSystemPasswordChar = false;
+            // 
+            // TF_Header3
+            // 
+            this.TF_Header3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TF_Header3.Depth = 0;
+            this.TF_Header3.Hint = "";
+            this.TF_Header3.Location = new System.Drawing.Point(109, 106);
+            this.TF_Header3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TF_Header3.Name = "TF_Header3";
+            this.TF_Header3.PasswordChar = '\0';
+            this.TF_Header3.SelectedText = "";
+            this.TF_Header3.SelectionLength = 0;
+            this.TF_Header3.SelectionStart = 0;
+            this.TF_Header3.Size = new System.Drawing.Size(113, 23);
+            this.TF_Header3.TabIndex = 9;
+            this.TF_Header3.UseSystemPasswordChar = false;
+            // 
+            // TF_Header2
+            // 
+            this.TF_Header2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TF_Header2.Depth = 0;
+            this.TF_Header2.Hint = "";
+            this.TF_Header2.Location = new System.Drawing.Point(109, 59);
+            this.TF_Header2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TF_Header2.Name = "TF_Header2";
+            this.TF_Header2.PasswordChar = '\0';
+            this.TF_Header2.SelectedText = "";
+            this.TF_Header2.SelectionLength = 0;
+            this.TF_Header2.SelectionStart = 0;
+            this.TF_Header2.Size = new System.Drawing.Size(113, 23);
+            this.TF_Header2.TabIndex = 8;
+            this.TF_Header2.Text = "DESCRIPTION";
+            this.TF_Header2.UseSystemPasswordChar = false;
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(3, 14);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(73, 19);
+            this.materialLabel3.TabIndex = 1;
+            this.materialLabel3.Text = "Header 1";
+            this.materialLabel3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialLabel4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel4.Location = new System.Drawing.Point(3, 61);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(73, 19);
+            this.materialLabel4.TabIndex = 3;
+            this.materialLabel4.Text = "Header 2";
+            this.materialLabel4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // materialLabel5
             // 
             this.materialLabel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -216,7 +282,7 @@ namespace RST_File_Generator
             this.materialLabel5.Location = new System.Drawing.Point(3, 108);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(74, 19);
+            this.materialLabel5.Size = new System.Drawing.Size(73, 19);
             this.materialLabel5.TabIndex = 4;
             this.materialLabel5.Text = "Header 3";
             this.materialLabel5.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -231,7 +297,7 @@ namespace RST_File_Generator
             this.materialLabel6.Location = new System.Drawing.Point(3, 155);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(74, 19);
+            this.materialLabel6.Size = new System.Drawing.Size(73, 19);
             this.materialLabel6.TabIndex = 5;
             this.materialLabel6.Text = "Header 4";
             this.materialLabel6.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -246,7 +312,7 @@ namespace RST_File_Generator
             this.materialLabel7.Location = new System.Drawing.Point(3, 204);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(74, 19);
+            this.materialLabel7.Size = new System.Drawing.Size(73, 19);
             this.materialLabel7.TabIndex = 6;
             this.materialLabel7.Text = "Header 5";
             this.materialLabel7.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -256,7 +322,7 @@ namespace RST_File_Generator
             this.TF_Header1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TF_Header1.Depth = 0;
             this.TF_Header1.Hint = "";
-            this.TF_Header1.Location = new System.Drawing.Point(110, 12);
+            this.TF_Header1.Location = new System.Drawing.Point(109, 12);
             this.TF_Header1.MouseState = MaterialSkin.MouseState.HOVER;
             this.TF_Header1.Name = "TF_Header1";
             this.TF_Header1.PasswordChar = '\0';
@@ -267,71 +333,6 @@ namespace RST_File_Generator
             this.TF_Header1.TabIndex = 7;
             this.TF_Header1.Text = "SYNOPSIS";
             this.TF_Header1.UseSystemPasswordChar = false;
-            // 
-            // TF_Header2
-            // 
-            this.TF_Header2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TF_Header2.Depth = 0;
-            this.TF_Header2.Hint = "";
-            this.TF_Header2.Location = new System.Drawing.Point(110, 59);
-            this.TF_Header2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.TF_Header2.Name = "TF_Header2";
-            this.TF_Header2.PasswordChar = '\0';
-            this.TF_Header2.SelectedText = "";
-            this.TF_Header2.SelectionLength = 0;
-            this.TF_Header2.SelectionStart = 0;
-            this.TF_Header2.Size = new System.Drawing.Size(113, 23);
-            this.TF_Header2.TabIndex = 8;
-            this.TF_Header2.Text = "DESCRIPTION";
-            this.TF_Header2.UseSystemPasswordChar = false;
-            // 
-            // TF_Header3
-            // 
-            this.TF_Header3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TF_Header3.Depth = 0;
-            this.TF_Header3.Hint = "";
-            this.TF_Header3.Location = new System.Drawing.Point(110, 106);
-            this.TF_Header3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.TF_Header3.Name = "TF_Header3";
-            this.TF_Header3.PasswordChar = '\0';
-            this.TF_Header3.SelectedText = "";
-            this.TF_Header3.SelectionLength = 0;
-            this.TF_Header3.SelectionStart = 0;
-            this.TF_Header3.Size = new System.Drawing.Size(113, 23);
-            this.TF_Header3.TabIndex = 9;
-            this.TF_Header3.UseSystemPasswordChar = false;
-            // 
-            // TF_Header4
-            // 
-            this.TF_Header4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TF_Header4.Depth = 0;
-            this.TF_Header4.Hint = "";
-            this.TF_Header4.Location = new System.Drawing.Point(110, 153);
-            this.TF_Header4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.TF_Header4.Name = "TF_Header4";
-            this.TF_Header4.PasswordChar = '\0';
-            this.TF_Header4.SelectedText = "";
-            this.TF_Header4.SelectionLength = 0;
-            this.TF_Header4.SelectionStart = 0;
-            this.TF_Header4.Size = new System.Drawing.Size(113, 23);
-            this.TF_Header4.TabIndex = 10;
-            this.TF_Header4.UseSystemPasswordChar = false;
-            // 
-            // TF_Header5
-            // 
-            this.TF_Header5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TF_Header5.Depth = 0;
-            this.TF_Header5.Hint = "";
-            this.TF_Header5.Location = new System.Drawing.Point(110, 202);
-            this.TF_Header5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.TF_Header5.Name = "TF_Header5";
-            this.TF_Header5.PasswordChar = '\0';
-            this.TF_Header5.SelectedText = "";
-            this.TF_Header5.SelectionLength = 0;
-            this.TF_Header5.SelectionStart = 0;
-            this.TF_Header5.Size = new System.Drawing.Size(113, 23);
-            this.TF_Header5.TabIndex = 11;
-            this.TF_Header5.UseSystemPasswordChar = false;
             // 
             // groupBox3
             // 
@@ -344,19 +345,6 @@ namespace RST_File_Generator
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Options";
-            // 
-            // materialLabel8
-            // 
-            this.materialLabel8.Depth = 0;
-            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel8.Location = new System.Drawing.Point(6, 17);
-            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel8.Name = "materialLabel8";
-            this.materialLabel8.Size = new System.Drawing.Size(117, 19);
-            this.materialLabel8.TabIndex = 1;
-            this.materialLabel8.Text = "Object Name - ";
-            this.materialLabel8.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // TF_objectname
             // 
@@ -373,6 +361,19 @@ namespace RST_File_Generator
             this.TF_objectname.Size = new System.Drawing.Size(221, 23);
             this.TF_objectname.TabIndex = 8;
             this.TF_objectname.UseSystemPasswordChar = false;
+            // 
+            // materialLabel8
+            // 
+            this.materialLabel8.Depth = 0;
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel8.Location = new System.Drawing.Point(6, 17);
+            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel8.Name = "materialLabel8";
+            this.materialLabel8.Size = new System.Drawing.Size(117, 19);
+            this.materialLabel8.TabIndex = 1;
+            this.materialLabel8.Text = "Object Name - ";
+            this.materialLabel8.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // BT_Generate
             // 
@@ -431,15 +432,15 @@ namespace RST_File_Generator
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Additional Information";
             // 
-            // CheckBox_Warning
+            // Checkbox_seealso
             // 
-            this.CheckBox_Warning.AutoSize = true;
-            this.CheckBox_Warning.Location = new System.Drawing.Point(10, 17);
-            this.CheckBox_Warning.Name = "CheckBox_Warning";
-            this.CheckBox_Warning.Size = new System.Drawing.Size(69, 16);
-            this.CheckBox_Warning.TabIndex = 0;
-            this.CheckBox_Warning.Text = "Warning";
-            this.CheckBox_Warning.UseVisualStyleBackColor = true;
+            this.Checkbox_seealso.AutoSize = true;
+            this.Checkbox_seealso.Location = new System.Drawing.Point(265, 17);
+            this.Checkbox_seealso.Name = "Checkbox_seealso";
+            this.Checkbox_seealso.Size = new System.Drawing.Size(75, 16);
+            this.Checkbox_seealso.TabIndex = 2;
+            this.Checkbox_seealso.Text = "See Also";
+            this.Checkbox_seealso.UseVisualStyleBackColor = true;
             // 
             // Checkbox_note
             // 
@@ -451,15 +452,15 @@ namespace RST_File_Generator
             this.Checkbox_note.Text = "Note";
             this.Checkbox_note.UseVisualStyleBackColor = true;
             // 
-            // Checkbox_seealso
+            // CheckBox_Warning
             // 
-            this.Checkbox_seealso.AutoSize = true;
-            this.Checkbox_seealso.Location = new System.Drawing.Point(265, 17);
-            this.Checkbox_seealso.Name = "Checkbox_seealso";
-            this.Checkbox_seealso.Size = new System.Drawing.Size(75, 16);
-            this.Checkbox_seealso.TabIndex = 2;
-            this.Checkbox_seealso.Text = "See Also";
-            this.Checkbox_seealso.UseVisualStyleBackColor = true;
+            this.CheckBox_Warning.AutoSize = true;
+            this.CheckBox_Warning.Location = new System.Drawing.Point(10, 17);
+            this.CheckBox_Warning.Name = "CheckBox_Warning";
+            this.CheckBox_Warning.Size = new System.Drawing.Size(69, 16);
+            this.CheckBox_Warning.TabIndex = 0;
+            this.CheckBox_Warning.Text = "Warning";
+            this.CheckBox_Warning.UseVisualStyleBackColor = true;
             // 
             // _00_Struct_Enum_Form
             // 
