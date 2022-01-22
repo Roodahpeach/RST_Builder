@@ -39,11 +39,22 @@ namespace RST_File_Generator
             this.RB_COMMON_warning = new System.Windows.Forms.RadioButton();
             this.RB_COMMON_note = new System.Windows.Forms.RadioButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.TF_Seealso_Target = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.LB_Seealso = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
+            this.TF_Seealso_DisplayName = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.BT_Seealso_Submit = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BT_Seealso_add = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BT_Seealso_Delete = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.GB_Common_notetype.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -155,13 +166,66 @@ namespace RST_File_Generator
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.tabPage2.Controls.Add(this.BT_Seealso_Submit);
+            this.tabPage2.Controls.Add(this.LB_Seealso);
+            this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(771, 375);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "See Also";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // TF_Seealso_Target
+            // 
+            this.TF_Seealso_Target.Depth = 0;
+            this.TF_Seealso_Target.Hint = "Label Name (Link Name)";
+            this.TF_Seealso_Target.Location = new System.Drawing.Point(157, 49);
+            this.TF_Seealso_Target.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TF_Seealso_Target.Name = "TF_Seealso_Target";
+            this.TF_Seealso_Target.PasswordChar = '\0';
+            this.TF_Seealso_Target.SelectedText = "";
+            this.TF_Seealso_Target.SelectionLength = 0;
+            this.TF_Seealso_Target.SelectionStart = 0;
+            this.TF_Seealso_Target.Size = new System.Drawing.Size(220, 23);
+            this.TF_Seealso_Target.TabIndex = 3;
+            this.TF_Seealso_Target.UseSystemPasswordChar = false;
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(40, 103);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(110, 19);
+            this.materialLabel3.TabIndex = 2;
+            this.materialLabel3.Text = "Display Name -";
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(6, 49);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(144, 19);
+            this.materialLabel2.TabIndex = 1;
+            this.materialLabel2.Text = "Target Label Name -";
+            // 
+            // LB_Seealso
+            // 
+            this.LB_Seealso.FormattingEnabled = true;
+            this.LB_Seealso.ItemHeight = 12;
+            this.LB_Seealso.Location = new System.Drawing.Point(6, 6);
+            this.LB_Seealso.Name = "LB_Seealso";
+            this.LB_Seealso.Size = new System.Drawing.Size(354, 292);
+            this.LB_Seealso.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -185,6 +249,74 @@ namespace RST_File_Generator
             this.materialTabSelector1.TabIndex = 0;
             this.materialTabSelector1.Text = "Test";
             // 
+            // TF_Seealso_DisplayName
+            // 
+            this.TF_Seealso_DisplayName.Depth = 0;
+            this.TF_Seealso_DisplayName.Hint = "(Optional)";
+            this.TF_Seealso_DisplayName.Location = new System.Drawing.Point(157, 103);
+            this.TF_Seealso_DisplayName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TF_Seealso_DisplayName.Name = "TF_Seealso_DisplayName";
+            this.TF_Seealso_DisplayName.PasswordChar = '\0';
+            this.TF_Seealso_DisplayName.SelectedText = "";
+            this.TF_Seealso_DisplayName.SelectionLength = 0;
+            this.TF_Seealso_DisplayName.SelectionStart = 0;
+            this.TF_Seealso_DisplayName.Size = new System.Drawing.Size(220, 23);
+            this.TF_Seealso_DisplayName.TabIndex = 4;
+            this.TF_Seealso_DisplayName.UseSystemPasswordChar = false;
+            // 
+            // BT_Seealso_Submit
+            // 
+            this.BT_Seealso_Submit.Depth = 0;
+            this.BT_Seealso_Submit.Location = new System.Drawing.Point(6, 306);
+            this.BT_Seealso_Submit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BT_Seealso_Submit.Name = "BT_Seealso_Submit";
+            this.BT_Seealso_Submit.Primary = true;
+            this.BT_Seealso_Submit.Size = new System.Drawing.Size(747, 63);
+            this.BT_Seealso_Submit.TabIndex = 5;
+            this.BT_Seealso_Submit.Text = "Submit";
+            this.BT_Seealso_Submit.UseVisualStyleBackColor = true;
+            this.BT_Seealso_Submit.Click += new System.EventHandler(this.BT_Seealso_Submit_Click);
+            // 
+            // BT_Seealso_add
+            // 
+            this.BT_Seealso_add.Depth = 0;
+            this.BT_Seealso_add.Location = new System.Drawing.Point(10, 168);
+            this.BT_Seealso_add.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BT_Seealso_add.Name = "BT_Seealso_add";
+            this.BT_Seealso_add.Primary = true;
+            this.BT_Seealso_add.Size = new System.Drawing.Size(179, 103);
+            this.BT_Seealso_add.TabIndex = 6;
+            this.BT_Seealso_add.Text = "Add";
+            this.BT_Seealso_add.UseVisualStyleBackColor = true;
+            this.BT_Seealso_add.Click += new System.EventHandler(this.BT_Seealso_add_Click);
+            // 
+            // BT_Seealso_Delete
+            // 
+            this.BT_Seealso_Delete.Depth = 0;
+            this.BT_Seealso_Delete.Location = new System.Drawing.Point(198, 168);
+            this.BT_Seealso_Delete.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BT_Seealso_Delete.Name = "BT_Seealso_Delete";
+            this.BT_Seealso_Delete.Primary = true;
+            this.BT_Seealso_Delete.Size = new System.Drawing.Size(179, 103);
+            this.BT_Seealso_Delete.TabIndex = 7;
+            this.BT_Seealso_Delete.Text = "Delete";
+            this.BT_Seealso_Delete.UseVisualStyleBackColor = true;
+            this.BT_Seealso_Delete.Click += new System.EventHandler(this.BT_Seealso_Delete_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.BT_Seealso_Delete);
+            this.groupBox1.Controls.Add(this.materialLabel2);
+            this.groupBox1.Controls.Add(this.BT_Seealso_add);
+            this.groupBox1.Controls.Add(this.TF_Seealso_Target);
+            this.groupBox1.Controls.Add(this.materialLabel3);
+            this.groupBox1.Controls.Add(this.TF_Seealso_DisplayName);
+            this.groupBox1.Location = new System.Drawing.Point(370, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(383, 292);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            // 
             // Function_Additional_Info_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -199,6 +331,9 @@ namespace RST_File_Generator
             this.tabPage1.PerformLayout();
             this.GB_Common_notetype.ResumeLayout(false);
             this.GB_Common_notetype.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -217,5 +352,15 @@ namespace RST_File_Generator
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private System.Windows.Forms.RichTextBox RT_Common_Description;
         private System.Windows.Forms.TabPage tabPage3;
+        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private System.Windows.Forms.ListBox LB_Seealso;
+        private MaterialSkin.Controls.MaterialSingleLineTextField TF_Seealso_Target;
+        private MaterialSkin.Controls.MaterialSingleLineTextField TF_Seealso_DisplayName;
+        private MaterialSkin.Controls.MaterialRaisedButton BT_Seealso_Submit;
+        private MaterialSkin.Controls.MaterialRaisedButton BT_Seealso_add;
+        private MaterialSkin.Controls.MaterialRaisedButton BT_Seealso_Delete;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

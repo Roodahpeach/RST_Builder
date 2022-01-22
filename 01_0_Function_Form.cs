@@ -280,9 +280,31 @@ namespace RST_File_Generator
                 {
                     continue;
                 }
-            }
+            }   
+        }
 
-            
+        public void GenFunc_SeeAlso()
+        {
+            string indent_blank = "  ";
+
+            foreach (Class_Additional_Function_Info info in Additional_Info_List)
+            {
+                if (info.Info_type == (int)Class_Additional_Function_Info.enum_Info_Type.SeeAlso)
+                {
+                    RST_File_Writer.WriteLine(".. seealso::");
+
+                    foreach (string str in info.Seealso_ref_linklist)
+                    {
+                        RST_File_Writer.WriteLine(indent_blank + str);
+                        RST_File_Writer.WriteLine();
+                    }
+                    GenFunc_AddBlank();
+                }
+                else
+                {
+                    continue;
+                }
+            }
         }
 
         #endregion
@@ -361,6 +383,7 @@ namespace RST_File_Generator
                 GenFunc_Parameter();
                 GenFunc_ReturnValue();
                 GenFunc_Note();
+                GenFunc_SeeAlso();
 
                 RST_File_Writer.Close();
 
@@ -510,7 +533,6 @@ namespace RST_File_Generator
             LB_Additional_Info.Items.Clear();
         }
         #endregion
-
 
     }
 }

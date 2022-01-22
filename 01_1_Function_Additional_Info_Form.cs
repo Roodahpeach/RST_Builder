@@ -43,6 +43,7 @@ namespace RST_File_Generator
 
         #endregion
 
+        #region Common
         private void BT_Common_Submit_Click(object sender, EventArgs e)
         {
             Class_Additional_Function_Info data = new Class_Additional_Function_Info();
@@ -68,5 +69,55 @@ namespace RST_File_Generator
             prev_form.AddInfo_AddData(data);
             prev_form.AddInfo_UpdateList();
         }
+        #endregion
+
+        #region SeeAlso
+        private void BT_Seealso_add_Click(object sender, EventArgs e)
+        {
+            string str = ":ref:`";
+            if (TF_Seealso_DisplayName.Text.Length == 0)
+            {
+                str += TF_Seealso_Target.Text + "`";
+            }
+            else
+            {
+                str += TF_Seealso_DisplayName.Text + " <" + TF_Seealso_Target.Text + ">`";
+            }
+            LB_Seealso.Items.Add(str);
+        }
+
+        private void BT_Seealso_Delete_Click(object sender, EventArgs e)
+        {
+            if (LB_Seealso.SelectedIndex == -1)
+            {
+                MessageBox.Show("삭제할 항목을 선택해주세요");
+            }
+            else
+            {
+                LB_Seealso.Items.RemoveAt(LB_Seealso.SelectedIndex);
+            }
+
+        }
+
+        private void BT_Seealso_Submit_Click(object sender, EventArgs e)
+        {
+            Class_Additional_Function_Info data = new Class_Additional_Function_Info();
+
+            data.id = prev_form.AddInfo_GetID();
+            data.Info_type = (int)Class_Additional_Function_Info.enum_Info_Type.SeeAlso;
+
+            for(int i =0;i<LB_Seealso.Items.Count;i++)
+            {
+                data.Seealso_ref_linklist.Add(LB_Seealso.Items[i]);
+            }
+
+            prev_form.AddInfo_AddData(data);
+            prev_form.AddInfo_UpdateList();
+
+        }
+
+        #endregion
+
+
     }
 }

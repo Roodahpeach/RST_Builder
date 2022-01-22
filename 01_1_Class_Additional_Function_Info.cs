@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace RST_File_Generator
 {
     public class Class_Additional_Function_Info
     {
         #region General
-        public int id = -1;
-        public int Info_type = -1;
+        public const int NO_DATA = -99;
+
+        public int id = NO_DATA;
+        public int Info_type = NO_DATA;
 
         public enum enum_Info_Type
         {
@@ -27,12 +30,16 @@ namespace RST_File_Generator
             Hint
         }
 
-        public int common_note_type = -1;
+        public int common_note_type = NO_DATA;
         public string common_description;
 
         #endregion
 
+        #region SeeAlso
 
+        public ArrayList Seealso_ref_linklist = new ArrayList();
+
+        #endregion
 
     }
 }
