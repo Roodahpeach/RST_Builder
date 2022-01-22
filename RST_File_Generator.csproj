@@ -73,12 +73,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="01_1_Additional_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="01_1_Additional_Form.Designer.cs">
-      <DependentUpon>01_1_Additional_Form.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="00_Struct_Enum_Form.resx">
       <DependentUpon>00_Struct_Enum_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,9 +92,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="01_1_Additional_Form.resx">
-      <DependentUpon>01_1_Additional_Form.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
