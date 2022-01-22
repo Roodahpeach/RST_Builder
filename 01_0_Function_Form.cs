@@ -197,6 +197,94 @@ namespace RST_File_Generator
 
         }
 
+        public void GenFunc_Warning()
+        {
+            string indent_blank = "  ";
+
+            foreach (Class_Additional_Function_Info info in Additional_Info_List)
+            {
+                if (info.common_note_type == (int)Class_Additional_Function_Info.enum_Common_Note_Type.Warning)
+                {
+                    RST_File_Writer.WriteLine(".. warning::");
+                    
+                    string[] temp = info.common_description.Split('\n');
+
+                    foreach (string str in temp)
+                    {
+                        RST_File_Writer.WriteLine(indent_blank + str);
+                        RST_File_Writer.WriteLine();
+                    }
+                    GenFunc_AddBlank();
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
+            
+        }
+
+        public void GenFunc_Note()
+        {
+            string indent_blank = "  ";
+
+            foreach (Class_Additional_Function_Info info in Additional_Info_List)
+            {
+                if (info.common_note_type == (int)Class_Additional_Function_Info.enum_Common_Note_Type.Note)
+                {
+                    RST_File_Writer.WriteLine(".. note::");
+
+                    string[] temp = info.common_description.Split('\n');
+
+                    foreach (string str in temp)
+                    {
+                        RST_File_Writer.WriteLine(indent_blank + str);
+                        RST_File_Writer.WriteLine();
+                    }
+
+                    GenFunc_AddBlank();
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
+            
+
+        }
+
+        public void GenFunc_Hint()
+        {
+            string indent_blank = "  ";
+
+            foreach (Class_Additional_Function_Info info in Additional_Info_List)
+            {
+                if (info.common_note_type == (int)Class_Additional_Function_Info.enum_Common_Note_Type.Hint)
+                {
+                    RST_File_Writer.WriteLine(".. hint::");
+
+                    string[] temp = info.common_description.Split('\n');
+
+                    foreach (string str in temp)
+                    {
+                        RST_File_Writer.WriteLine(indent_blank + str);
+                        RST_File_Writer.WriteLine();
+                    }
+                    
+                    GenFunc_AddBlank();
+
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
+            
+        }
+
         #endregion
 
         #region Form Init
@@ -251,19 +339,28 @@ namespace RST_File_Generator
         #region UI_Event_Handler
         private void BT_Generate_Click(object sender, EventArgs e)
         {
-            object_name = TF_FunctionName.Text;
+            if((TF_FunctionName.Text.Length == 0) || (TF_Return_Type.Text.Length == 0))
+            {
+                MessageBox.Show("함수 이름, 반환값 정보를 입력해주세요");
+                return;
+            }
 
-            filename = TF_FolderLocation.Text + "\\" + object_name + ".rst";
+            object_name = TF_FunctionName.Text;
+            string FolderLocation = TF_FolderLocation.Text.Length == 0 ? "./" : TF_FolderLocation.Text;
+            filename = FolderLocation + "\\" + object_name + ".rst";
 
             try
             {
                 RST_File_Writer = File.CreateText(filename);
 
                 GenFunc_Header();
+                GenFunc_Warning();
+                GenFunc_Hint();
                 GenFunc_Synopsis();
                 GenFunc_Description();
                 GenFunc_Parameter();
                 GenFunc_ReturnValue();
+                GenFunc_Note();
 
                 RST_File_Writer.Close();
 
@@ -282,6 +379,30 @@ namespace RST_File_Generator
             if (fld.ShowDialog() == DialogResult.OK)
             {
                 TF_FolderLocation.Text = fld.SelectedPath;
+            }
+        }
+
+        private void BT_Add_Info_Click(object sender, EventArgs e)
+        {
+            new Function_Additional_Info_Form(this).Show();
+        }
+
+        private void BT_Delete_Info_Click(object sender, EventArgs e)
+        {
+            if (LB_Additional_Info.SelectedItem != null)
+            {
+                string temp = LB_Additional_Info.SelectedItem.ToString();
+
+                string[] temp2 = temp.Split('-');
+
+                int target_id = Convert.ToInt32(temp2[0]);
+
+                AddInfo_DeleteID(target_id);
+                AddInfo_UpdateList();
+            }
+            else
+            {
+                MessageBox.Show("리스트에서 지우고자 하는 데이터를 선택해주세요");
             }
         }
 
@@ -316,6 +437,80 @@ namespace RST_File_Generator
             }
         }
         #endregion
+
+        #region Additional_Info_Handler
+
+        public ArrayList Additional_Info_List = new ArrayList();
+        public int Additional_Info_ID = 0;
+        public int AddInfo_GetID()
+        {
+            return Additional_Info_ID;
+        }
+        public void AddInfo_AddData(Class_Additional_Function_Info info)
+        {
+            Additional_Info_List.Add(info);
+            Additional_Info_ID++;
+        }
+
+        public void AddInfo_UpdateList()
+        {
+            LB_Additional_Info.Items.Clear();
+
+            foreach(Class_Additional_Function_Info info in Additional_Info_List)
+            {
+                string str;
+                string info_type = "";
+
+                if(info.Info_type == (int)Class_Additional_Function_Info.enum_Info_Type.Common_Note)
+                {
+                    info_type = "Common_Note";
+                    if(info.common_note_type == (int)Class_Additional_Function_Info.enum_Common_Note_Type.Hint)
+                    {
+                        info_type += "(Hint)";
+                    }
+                    else if (info.common_note_type == (int)Class_Additional_Function_Info.enum_Common_Note_Type.Note)
+                    {
+                        info_type += "(Note)";
+                    }
+                    else if (info.common_note_type == (int)Class_Additional_Function_Info.enum_Common_Note_Type.Warning)
+                    {
+                        info_type += "(Warning)";
+                    }
+                }
+                else if(info.Info_type == (int)Class_Additional_Function_Info.enum_Info_Type.SeeAlso)
+                {
+                    info_type = "SeeAlso";
+                }
+                else if (info.Info_type == (int)Class_Additional_Function_Info.enum_Info_Type.Example)
+                {
+                    info_type = "Example";
+                }
+
+                str = info.id + "-" + info_type;
+
+                LB_Additional_Info.Items.Add(str);
+            }
+        }
+
+        public void AddInfo_DeleteID(int target_id)
+        {
+            for(int i =0;i< Additional_Info_List.Count; i++)
+            {
+                Class_Additional_Function_Info temp = (Class_Additional_Function_Info)Additional_Info_List[i];
+                if(temp.id == target_id)
+                {
+                    Additional_Info_List.RemoveAt(i);
+                }
+            }
+        }
+        private void BT_ClearAll_Click(object sender, EventArgs e)
+        {
+            Additional_Info_List.Clear();
+            Additional_Info_ID = 0;
+            LB_Additional_Info.Items.Clear();
+        }
+        #endregion
+
 
     }
 }

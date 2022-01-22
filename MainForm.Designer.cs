@@ -30,8 +30,8 @@ namespace RST_File_Generator
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.BT_function = new MaterialSkin.Controls.MaterialRaisedButton();
             this.BT_struct_enum = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BT_function = new MaterialSkin.Controls.MaterialRaisedButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,30 +40,16 @@ namespace RST_File_Generator
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.BT_function, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.BT_struct_enum, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.BT_function, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 135);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(469, 376);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // BT_function
-            // 
-            this.BT_function.Depth = 0;
-            this.BT_function.Location = new System.Drawing.Point(237, 3);
-            this.BT_function.MouseState = MaterialSkin.MouseState.HOVER;
-            this.BT_function.Name = "BT_function";
-            this.BT_function.Primary = true;
-            this.BT_function.Size = new System.Drawing.Size(228, 88);
-            this.BT_function.TabIndex = 0;
-            this.BT_function.Text = "Function Form Generator";
-            this.BT_function.UseVisualStyleBackColor = true;
-            this.BT_function.Click += new System.EventHandler(this.BT_function_Click);
             // 
             // BT_struct_enum
             // 
@@ -72,11 +58,24 @@ namespace RST_File_Generator
             this.BT_struct_enum.MouseState = MaterialSkin.MouseState.HOVER;
             this.BT_struct_enum.Name = "BT_struct_enum";
             this.BT_struct_enum.Primary = true;
-            this.BT_struct_enum.Size = new System.Drawing.Size(228, 88);
+            this.BT_struct_enum.Size = new System.Drawing.Size(228, 119);
             this.BT_struct_enum.TabIndex = 0;
             this.BT_struct_enum.Text = "Struct, Enum Form Generator";
             this.BT_struct_enum.UseVisualStyleBackColor = true;
             this.BT_struct_enum.Click += new System.EventHandler(this.Main_BT_struct_enum_Click);
+            // 
+            // BT_function
+            // 
+            this.BT_function.Depth = 0;
+            this.BT_function.Location = new System.Drawing.Point(237, 3);
+            this.BT_function.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BT_function.Name = "BT_function";
+            this.BT_function.Primary = true;
+            this.BT_function.Size = new System.Drawing.Size(228, 119);
+            this.BT_function.TabIndex = 0;
+            this.BT_function.Text = "Function Form Generator";
+            this.BT_function.UseVisualStyleBackColor = true;
+            this.BT_function.Click += new System.EventHandler(this.BT_function_Click);
             // 
             // MainForm
             // 
@@ -85,7 +84,7 @@ namespace RST_File_Generator
             this.ClientSize = new System.Drawing.Size(493, 523);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MainForm";
-            this.Text = "RST_File_Generator V0.03";
+            this.Text = "RST_File_Generator V1.0.1.0";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

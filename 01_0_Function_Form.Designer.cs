@@ -79,7 +79,6 @@ namespace RST_File_Generator
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.BT_Generate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.BT_Delete_Info = new MaterialSkin.Controls.MaterialRaisedButton();
             this.BT_Add_Info = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
@@ -89,6 +88,7 @@ namespace RST_File_Generator
             this.TF_FolderLocation = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.Timer_Status = new System.Windows.Forms.Timer(this.components);
+            this.BT_ClearAll = new MaterialSkin.Controls.MaterialRaisedButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -781,7 +781,7 @@ namespace RST_File_Generator
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.materialRaisedButton1);
+            this.groupBox5.Controls.Add(this.BT_ClearAll);
             this.groupBox5.Controls.Add(this.BT_Delete_Info);
             this.groupBox5.Controls.Add(this.BT_Add_Info);
             this.groupBox5.Controls.Add(this.materialLabel8);
@@ -794,41 +794,31 @@ namespace RST_File_Generator
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Additional Information";
             // 
-            // materialRaisedButton1
-            // 
-            this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(7, 586);
-            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton1.Name = "materialRaisedButton1";
-            this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(232, 57);
-            this.materialRaisedButton1.TabIndex = 8;
-            this.materialRaisedButton1.Text = "Modify";
-            this.materialRaisedButton1.UseVisualStyleBackColor = true;
-            // 
             // BT_Delete_Info
             // 
             this.BT_Delete_Info.Depth = 0;
-            this.BT_Delete_Info.Location = new System.Drawing.Point(7, 641);
+            this.BT_Delete_Info.Location = new System.Drawing.Point(7, 628);
             this.BT_Delete_Info.MouseState = MaterialSkin.MouseState.HOVER;
             this.BT_Delete_Info.Name = "BT_Delete_Info";
             this.BT_Delete_Info.Primary = true;
-            this.BT_Delete_Info.Size = new System.Drawing.Size(232, 57);
+            this.BT_Delete_Info.Size = new System.Drawing.Size(115, 70);
             this.BT_Delete_Info.TabIndex = 7;
             this.BT_Delete_Info.Text = "Delete";
             this.BT_Delete_Info.UseVisualStyleBackColor = true;
+            this.BT_Delete_Info.Click += new System.EventHandler(this.BT_Delete_Info_Click);
             // 
             // BT_Add_Info
             // 
             this.BT_Add_Info.Depth = 0;
-            this.BT_Add_Info.Location = new System.Drawing.Point(7, 536);
+            this.BT_Add_Info.Location = new System.Drawing.Point(7, 552);
             this.BT_Add_Info.MouseState = MaterialSkin.MouseState.HOVER;
             this.BT_Add_Info.Name = "BT_Add_Info";
             this.BT_Add_Info.Primary = true;
-            this.BT_Add_Info.Size = new System.Drawing.Size(232, 57);
+            this.BT_Add_Info.Size = new System.Drawing.Size(232, 69);
             this.BT_Add_Info.TabIndex = 6;
             this.BT_Add_Info.Text = "Add";
             this.BT_Add_Info.UseVisualStyleBackColor = true;
+            this.BT_Add_Info.Click += new System.EventHandler(this.BT_Add_Info_Click);
             // 
             // materialLabel8
             // 
@@ -847,11 +837,9 @@ namespace RST_File_Generator
             // 
             this.LB_Additional_Info.FormattingEnabled = true;
             this.LB_Additional_Info.ItemHeight = 12;
-            this.LB_Additional_Info.Items.AddRange(new object[] {
-            "구현예정"});
             this.LB_Additional_Info.Location = new System.Drawing.Point(7, 52);
             this.LB_Additional_Info.Name = "LB_Additional_Info";
-            this.LB_Additional_Info.Size = new System.Drawing.Size(232, 472);
+            this.LB_Additional_Info.Size = new System.Drawing.Size(232, 484);
             this.LB_Additional_Info.TabIndex = 0;
             this.LB_Additional_Info.TabStop = false;
             this.LB_Additional_Info.UseTabStops = false;
@@ -917,6 +905,19 @@ namespace RST_File_Generator
             this.Timer_Status.Enabled = true;
             this.Timer_Status.Interval = 300;
             this.Timer_Status.Tick += new System.EventHandler(this.Timer_Status_Tick);
+            // 
+            // BT_ClearAll
+            // 
+            this.BT_ClearAll.Depth = 0;
+            this.BT_ClearAll.Location = new System.Drawing.Point(124, 628);
+            this.BT_ClearAll.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BT_ClearAll.Name = "BT_ClearAll";
+            this.BT_ClearAll.Primary = true;
+            this.BT_ClearAll.Size = new System.Drawing.Size(115, 70);
+            this.BT_ClearAll.TabIndex = 8;
+            this.BT_ClearAll.Text = "Clear";
+            this.BT_ClearAll.UseVisualStyleBackColor = true;
+            this.BT_ClearAll.Click += new System.EventHandler(this.BT_ClearAll_Click);
             // 
             // _01_Function_Form
             // 
@@ -1002,7 +1003,6 @@ namespace RST_File_Generator
         private System.Windows.Forms.ListBox LB_Additional_Info;
         private System.Windows.Forms.CheckBox Checkbox_Return_inputraw;
         private System.Windows.Forms.CheckBox Checkbox_Description_inputraw;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
         private System.Windows.Forms.GroupBox groupBox6;
         private MaterialSkin.Controls.MaterialSingleLineTextField TF_FolderLocation;
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
@@ -1010,5 +1010,6 @@ namespace RST_File_Generator
         private MaterialSkin.Controls.MaterialLabel materialLabel10;
         private MaterialSkin.Controls.MaterialSingleLineTextField TF_Prefix;
         private System.Windows.Forms.Timer Timer_Status;
+        private MaterialSkin.Controls.MaterialRaisedButton BT_ClearAll;
     }
 }
