@@ -14,8 +14,14 @@ using MaterialSkin.Controls;
 
 namespace RST_File_Generator
 {
+    
     public partial class MainForm : MaterialForm
     {
+        public void functionform_reload()
+        {
+            new _01_Function_Form(this).Show();
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -35,7 +41,7 @@ namespace RST_File_Generator
 
         private void BT_function_Click(object sender, EventArgs e)
         {
-            new _01_Function_Form().Show();
+            new _01_Function_Form(this).Show();
         }
     }
 }

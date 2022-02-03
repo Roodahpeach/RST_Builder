@@ -123,7 +123,25 @@ namespace RST_File_Generator
             {
                 if (TF_Param_DataType_List[i].Text.Length != 0)
                 {
-                    RST_File_Writer.WriteLine("- " + TF_Param_Name_List[i].Text + " : " + RT_Param_Description_List[i].Text);
+                    
+                    String str = TF_Param_Name_List[i].Text;
+                    if(str.IndexOf('*') != -1) //* 제거
+                    {
+                        str = str.Substring(str.IndexOf('*') + 1);  
+                    }
+
+
+                    String[] str2_temp = RT_Param_Description_List[i].Text.Split('\n'); //파라미터 설명쪽에 엔터키 제거
+                    String str2 = "";
+                    foreach (string temptemp in str2_temp)
+                    {
+                        string temptemp2 = temptemp.Last() == '.' ? "" : ".";
+                        str2 += temptemp +temptemp2 + " ";
+                    }
+                    
+
+                   
+                    RST_File_Writer.WriteLine("- " + str + " : " + str2);
                     RST_File_Writer.WriteLine();
                 }
                 else
@@ -310,6 +328,8 @@ namespace RST_File_Generator
         #endregion
 
         #region Form Init
+
+        MainForm prev_form;
         public _01_Function_Form()
         {
             InitializeComponent();
@@ -319,6 +339,20 @@ namespace RST_File_Generator
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
       
+            //materialSkinManager.Theme = MaterialSkinManager.Themes.DARK; 
+            //materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+        }
+
+        public _01_Function_Form(MainForm formform)
+        {
+            InitializeComponent();
+
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+
+            prev_form = formform;
             //materialSkinManager.Theme = MaterialSkinManager.Themes.DARK; 
             //materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
         }
@@ -427,8 +461,14 @@ namespace RST_File_Generator
             {
                 MessageBox.Show("리스트에서 지우고자 하는 데이터를 선택해주세요");
             }
-        }
 
+
+        }
+        private void BT_Clear_All_Click(object sender, EventArgs e)
+        {
+            prev_form.functionform_reload();
+            this.Close();
+        }
         #endregion
 
         #region StatusTimer
@@ -534,5 +574,6 @@ namespace RST_File_Generator
         }
         #endregion
 
+        
     }
 }
