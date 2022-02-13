@@ -29,6 +29,7 @@ namespace RST_File_Generator
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.BT_Common_Submit = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -49,13 +50,25 @@ namespace RST_File_Generator
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.TF_Seealso_DisplayName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.LB_Example_Linenumber = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.RT_Example_Examplecode = new System.Windows.Forms.RichTextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.CB_Example_Language = new System.Windows.Forms.ComboBox();
+            this.TF_Example_Emphasize = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.BT_Example_Import = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BT_Example_Submit = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.GB_Common_notetype.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -299,6 +312,11 @@ namespace RST_File_Generator
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.BT_Example_Submit);
+            this.tabPage3.Controls.Add(this.groupBox2);
+            this.tabPage3.Controls.Add(this.LB_Example_Linenumber);
+            this.tabPage3.Controls.Add(this.materialLabel4);
+            this.tabPage3.Controls.Add(this.RT_Example_Examplecode);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -306,6 +324,65 @@ namespace RST_File_Generator
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Example";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.BT_Example_Import);
+            this.groupBox2.Controls.Add(this.TF_Example_Emphasize);
+            this.groupBox2.Controls.Add(this.CB_Example_Language);
+            this.groupBox2.Controls.Add(this.materialLabel5);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(602, 47);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(163, 191);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Options";
+            // 
+            // LB_Example_Linenumber
+            // 
+            this.LB_Example_Linenumber.AutoSize = true;
+            this.LB_Example_Linenumber.Depth = 0;
+            this.LB_Example_Linenumber.Font = new System.Drawing.Font("Roboto", 11F);
+            this.LB_Example_Linenumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LB_Example_Linenumber.Location = new System.Drawing.Point(727, 19);
+            this.LB_Example_Linenumber.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LB_Example_Linenumber.Name = "LB_Example_Linenumber";
+            this.LB_Example_Linenumber.Size = new System.Drawing.Size(17, 19);
+            this.LB_Example_Linenumber.TabIndex = 2;
+            this.LB_Example_Linenumber.Text = "0";
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel4.Location = new System.Drawing.Point(599, 19);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(134, 19);
+            this.materialLabel4.TabIndex = 1;
+            this.materialLabel4.Text = "Current Line Num -";
+            // 
+            // RT_Example_Examplecode
+            // 
+            this.RT_Example_Examplecode.AcceptsTab = true;
+            this.RT_Example_Examplecode.Location = new System.Drawing.Point(6, 6);
+            this.RT_Example_Examplecode.Name = "RT_Example_Examplecode";
+            this.RT_Example_Examplecode.Size = new System.Drawing.Size(587, 363);
+            this.RT_Example_Examplecode.TabIndex = 0;
+            this.RT_Example_Examplecode.Text = "";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(771, 375);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Image";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // materialTabSelector1
             // 
@@ -319,15 +396,79 @@ namespace RST_File_Generator
             this.materialTabSelector1.TabIndex = 0;
             this.materialTabSelector1.Text = "Test";
             // 
-            // tabPage4
+            // timer1
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(771, 375);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Image";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 10;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel5.Location = new System.Drawing.Point(43, 17);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(73, 19);
+            this.materialLabel5.TabIndex = 0;
+            this.materialLabel5.Text = "Language";
+            // 
+            // CB_Example_Language
+            // 
+            this.CB_Example_Language.FormattingEnabled = true;
+            this.CB_Example_Language.Items.AddRange(new object[] {
+            "C++",
+            "C#",
+            "Delphi",
+            "VB6.0"});
+            this.CB_Example_Language.Location = new System.Drawing.Point(6, 39);
+            this.CB_Example_Language.Name = "CB_Example_Language";
+            this.CB_Example_Language.Size = new System.Drawing.Size(151, 20);
+            this.CB_Example_Language.TabIndex = 1;
+            // 
+            // TF_Example_Emphasize
+            // 
+            this.TF_Example_Emphasize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.TF_Example_Emphasize.Depth = 0;
+            this.TF_Example_Emphasize.Hint = "Emphasize Line Num";
+            this.TF_Example_Emphasize.Location = new System.Drawing.Point(6, 86);
+            this.TF_Example_Emphasize.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TF_Example_Emphasize.Name = "TF_Example_Emphasize";
+            this.TF_Example_Emphasize.PasswordChar = '\0';
+            this.TF_Example_Emphasize.SelectedText = "";
+            this.TF_Example_Emphasize.SelectionLength = 0;
+            this.TF_Example_Emphasize.SelectionStart = 0;
+            this.TF_Example_Emphasize.Size = new System.Drawing.Size(151, 23);
+            this.TF_Example_Emphasize.TabIndex = 4;
+            this.TF_Example_Emphasize.UseSystemPasswordChar = false;
+            // 
+            // BT_Example_Import
+            // 
+            this.BT_Example_Import.Depth = 0;
+            this.BT_Example_Import.Location = new System.Drawing.Point(6, 137);
+            this.BT_Example_Import.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BT_Example_Import.Name = "BT_Example_Import";
+            this.BT_Example_Import.Primary = true;
+            this.BT_Example_Import.Size = new System.Drawing.Size(151, 39);
+            this.BT_Example_Import.TabIndex = 5;
+            this.BT_Example_Import.Text = "Import Code File";
+            this.BT_Example_Import.UseVisualStyleBackColor = true;
+            this.BT_Example_Import.Click += new System.EventHandler(this.BT_Example_Import_Click);
+            // 
+            // BT_Example_Submit
+            // 
+            this.BT_Example_Submit.Depth = 0;
+            this.BT_Example_Submit.Location = new System.Drawing.Point(608, 244);
+            this.BT_Example_Submit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BT_Example_Submit.Name = "BT_Example_Submit";
+            this.BT_Example_Submit.Primary = true;
+            this.BT_Example_Submit.Size = new System.Drawing.Size(151, 125);
+            this.BT_Example_Submit.TabIndex = 4;
+            this.BT_Example_Submit.Text = "Submit";
+            this.BT_Example_Submit.UseVisualStyleBackColor = true;
+            this.BT_Example_Submit.Click += new System.EventHandler(this.BT_Example_Submit_Click);
             // 
             // Function_Additional_Info_Form
             // 
@@ -346,6 +487,10 @@ namespace RST_File_Generator
             this.tabPage2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -364,7 +509,6 @@ namespace RST_File_Generator
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private System.Windows.Forms.RichTextBox RT_Common_Description;
         private System.Windows.Forms.TabPage tabPage3;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private System.Windows.Forms.ListBox LB_Seealso;
@@ -375,5 +519,15 @@ namespace RST_File_Generator
         private MaterialSkin.Controls.MaterialRaisedButton BT_Seealso_Delete;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TabPage tabPage4;
+        private MaterialSkin.Controls.MaterialLabel LB_Example_Linenumber;
+        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private System.Windows.Forms.RichTextBox RT_Example_Examplecode;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private System.Windows.Forms.ComboBox CB_Example_Language;
+        private MaterialSkin.Controls.MaterialSingleLineTextField TF_Example_Emphasize;
+        private MaterialSkin.Controls.MaterialRaisedButton BT_Example_Import;
+        private MaterialSkin.Controls.MaterialRaisedButton BT_Example_Submit;
     }
 }

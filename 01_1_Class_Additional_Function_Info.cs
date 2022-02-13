@@ -19,7 +19,8 @@ namespace RST_File_Generator
         {
             Common_Note,
             SeeAlso,
-            Example
+            Example,
+            Image
         }
         #endregion
 
@@ -41,5 +42,18 @@ namespace RST_File_Generator
 
         #endregion
 
+        #region Example
+        public enum enum_Example_Language
+        {
+            CPP,
+            CSharp,
+            Delphi,
+            VB
+        }
+
+        public string example_code;
+        public int example_language = NO_DATA;
+        public ArrayList example_emphsizeline = new ArrayList();
+        #endregion
     }
 }

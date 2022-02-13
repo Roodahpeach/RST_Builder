@@ -28,6 +28,8 @@ namespace RST_File_Generator
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
+
+            CB_Example_Language.SelectedIndex = 0;
         }
 
         public Function_Additional_Info_Form(_01_Function_Form form)
@@ -38,6 +40,8 @@ namespace RST_File_Generator
             materialSkinManager.AddFormToManage(this);
 
             prev_form = form;
+
+            CB_Example_Language.SelectedIndex = 0;
         }
 
 
@@ -68,6 +72,7 @@ namespace RST_File_Generator
 
             prev_form.AddInfo_AddData(data);
             prev_form.AddInfo_UpdateList();
+            MessageBox.Show("추가 완료");
         }
         #endregion
 
@@ -113,11 +118,73 @@ namespace RST_File_Generator
 
             prev_form.AddInfo_AddData(data);
             prev_form.AddInfo_UpdateList();
-
+            MessageBox.Show("추가 완료");
         }
+
 
         #endregion
 
 
+        #region Example
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            var wordWrappedIndex = RT_Example_Examplecode.SelectionStart;
+
+            RichTextBox scratch = new RichTextBox();
+            scratch.Lines = RT_Example_Examplecode.Lines;
+            scratch.SelectionStart = wordWrappedIndex;
+            scratch.SelectionLength = 1;
+            scratch.WordWrap = false;
+
+            var selectionStartIndex = scratch.SelectionStart;
+
+            LB_Example_Linenumber.Text = (scratch.GetLineFromCharIndex(selectionStartIndex)+1).ToString();
+        }
+
+        #endregion
+
+        private void BT_Example_Import_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    var filepath = openFileDialog.FileName;
+
+                    string text = System.IO.File.ReadAllText(filepath, System.Text.Encoding.GetEncoding(949)); //한글 깨짐 이슈 방지
+                    RT_Example_Examplecode.AppendText(text);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void BT_Example_Submit_Click(object sender, EventArgs e)
+        {
+            Class_Additional_Function_Info data = new Class_Additional_Function_Info();
+
+            data.id = prev_form.AddInfo_GetID();
+            data.Info_type = (int)Class_Additional_Function_Info.enum_Info_Type.Example;
+
+            data.example_code = RT_Example_Examplecode.Text;
+            data.example_language = CB_Example_Language.SelectedIndex;
+
+            string temp = TF_Example_Emphasize.Text;
+
+            string[] temp2 = temp.Split(',');
+            
+            foreach(string str in temp2)
+            {
+                data.example_emphsizeline.Add(str.Trim());
+            }
+
+            prev_form.AddInfo_AddData(data);
+            prev_form.AddInfo_UpdateList();
+            MessageBox.Show("추가 완료");
+        }
     }
 }

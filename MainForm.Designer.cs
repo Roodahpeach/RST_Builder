@@ -84,7 +84,7 @@ namespace RST_File_Generator
             this.ClientSize = new System.Drawing.Size(493, 523);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MainForm";
-            this.Text = "RST_File_Generator V1.0.1.3";
+            this.Text = "RST_File_Generator V1.0.2.0";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

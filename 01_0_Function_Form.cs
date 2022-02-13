@@ -28,6 +28,8 @@ namespace RST_File_Generator
         MaterialSingleLineTextField[] TF_Param_DataType_List = new MaterialSingleLineTextField[9];
         RichTextBox[] RT_Param_Description_List = new RichTextBox[9];
 
+        int isExampleExist = 0;
+
         #endregion
 
         #region RST_Generating_Functions
@@ -40,8 +42,8 @@ namespace RST_File_Generator
         }
         public void GenFunc_Header()
         {
-            string object_name = TF_FunctionName.Text;
-            string prefix = TF_Prefix.Text;
+            string object_name = TF_FunctionName.Text.Trim();
+            string prefix = TF_Prefix.Text.Trim();
 
             RST_File_Writer.WriteLine(".. _" + prefix + "_" + object_name + ":");
             RST_File_Writer.WriteLine();
@@ -64,8 +66,8 @@ namespace RST_File_Generator
         }
         public void GenFunc_Synopsis()
         {
-            string object_name = TF_FunctionName.Text;
-            string return_type = TF_Return_Type.Text;
+            string object_name = TF_FunctionName.Text.Trim();
+            string return_type = TF_Return_Type.Text.Trim();
             string header_name = "SYNOPSIS";
             string indent_blank = "  ";
 
@@ -124,7 +126,7 @@ namespace RST_File_Generator
                 if (TF_Param_DataType_List[i].Text.Length != 0)
                 {
                     
-                    String str = TF_Param_Name_List[i].Text;
+                    String str = TF_Param_Name_List[i].Text.Trim();
                     if(str.IndexOf('*') != -1) //* 제거
                     {
                         str = str.Substring(str.IndexOf('*') + 1);  
@@ -328,6 +330,99 @@ namespace RST_File_Generator
             }
         }
 
+        public void GenFunc_Example()
+        {
+            string indent_blank = "  ";
+
+            foreach (Class_Additional_Function_Info info in Additional_Info_List)
+            {
+                if (info.Info_type == (int)Class_Additional_Function_Info.enum_Info_Type.Example)
+                {
+                    string header_name = "";
+                    string languageinfo = "";
+
+                    //Example이라는 헤더 넣기
+                    if (isExampleExist == 0)
+                    {
+                        header_name = "EXAMPLE";
+
+                        RST_File_Writer.WriteLine(header_name);
+
+                        foreach (char c in header_name)
+                        {
+                            RST_File_Writer.Write("-");
+                        }
+
+                        GenFunc_AddBlank();
+                        
+                        isExampleExist++;
+                    }
+
+                    
+                    //Example 언어에 따라 소제목 추가
+                    if (info.example_language == (int)Class_Additional_Function_Info.enum_Example_Language.CPP)
+                    {
+                        header_name = "C++";
+                        languageinfo = " c++";
+                    }
+                    else if (info.example_language == (int)Class_Additional_Function_Info.enum_Example_Language.CSharp)
+                    {
+                        header_name = "C#";
+                        languageinfo = " c#";
+                    }
+                    else if (info.example_language == (int)Class_Additional_Function_Info.enum_Example_Language.Delphi)
+                    {
+                        header_name = "Delphi";
+                        languageinfo = " delphi";
+                    }
+                    else if (info.example_language == (int)Class_Additional_Function_Info.enum_Example_Language.VB)
+                    {
+                        header_name = "Visual Basic";
+                        languageinfo = " vbnet";//fixme 확실하지 않음
+                    }
+
+                    RST_File_Writer.WriteLine(header_name);
+
+                    foreach (char c in header_name)
+                    {
+                        RST_File_Writer.Write("^");
+                    }
+                    GenFunc_AddBlank();
+
+                    RST_File_Writer.Write(".. code-block::");
+                    RST_File_Writer.WriteLine(languageinfo);
+
+                    RST_File_Writer.WriteLine(indent_blank + ":linenos:");
+
+                    if(info.example_emphsizeline.Count != 0)
+                    {
+                        //
+                        RST_File_Writer.Write(indent_blank + ":emphasize-lines: ");
+                    }
+                    string temptemp = "";
+                    foreach(string str in info.example_emphsizeline)
+                    {
+                        temptemp += str + ",";
+                    }
+
+                    RST_File_Writer.WriteLine(temptemp.Remove(temptemp.Length - 1));
+                    RST_File_Writer.WriteLine();
+
+                    string[] temptemp2 = info.example_code.Split('\n');
+                    foreach(string str in temptemp2)
+                    {
+                        RST_File_Writer.WriteLine(indent_blank + str);
+                    }
+                    
+                    GenFunc_AddBlank();
+                }
+                else
+                {
+                    continue;
+                }
+
+            }
+        }
         #endregion
 
         #region Form Init
@@ -408,6 +503,7 @@ namespace RST_File_Generator
             string FolderLocation = TF_FolderLocation.Text.Length == 0 ? "./" : TF_FolderLocation.Text;
             filename = FolderLocation + "\\" + object_name + ".rst";
 
+            isExampleExist = 0;
             try
             {
                 RST_File_Writer = File.CreateText(filename);
@@ -420,6 +516,7 @@ namespace RST_File_Generator
                 GenFunc_Parameter();
                 GenFunc_ReturnValue();
                 GenFunc_Note();
+                GenFunc_Example();
                 GenFunc_SeeAlso();
 
                 RST_File_Writer.Close();
@@ -570,6 +667,23 @@ namespace RST_File_Generator
                 else if (info.Info_type == (int)Class_Additional_Function_Info.enum_Info_Type.Example)
                 {
                     info_type = "Example";
+                    if(info.example_language == (int)Class_Additional_Function_Info.enum_Example_Language.CPP)
+                    {
+                        info_type += "(C++)";
+                    }
+                    else if (info.example_language == (int)Class_Additional_Function_Info.enum_Example_Language.CSharp)
+                    {
+                        info_type += "(C#)";
+                    }
+                    else if (info.example_language == (int)Class_Additional_Function_Info.enum_Example_Language.Delphi)
+                    {
+                        info_type += "(Delphi)";
+                    }
+                    else if (info.example_language == (int)Class_Additional_Function_Info.enum_Example_Language.VB)
+                    {
+                        info_type += "(VB6.0)";
+                    }
+
                 }
 
                 str = info.id + "-" + info_type;
