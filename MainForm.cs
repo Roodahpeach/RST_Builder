@@ -11,6 +11,14 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
+/*
+- 작업 목록
+예제 입력 폼 제작
+이미지 입력 폼 제작
+테이블 제네레이터 제작?
+Unit Test 모듈 제작?
+클리어기능 다시 제작 -> 해결
+ */
 
 namespace RST_File_Generator
 {

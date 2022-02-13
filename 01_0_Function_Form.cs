@@ -135,8 +135,11 @@ namespace RST_File_Generator
                     String str2 = "";
                     foreach (string temptemp in str2_temp)
                     {
-                        string temptemp2 = temptemp.Last() == '.' ? "" : ".";
-                        str2 += temptemp +temptemp2 + " ";
+                        if(temptemp.Length != 0)
+                        {
+                            string temptemp2 = temptemp.Last() == '.' ? "" : ".";
+                            str2 += temptemp + temptemp2 + " ";
+                        }
                     }
                     
 
@@ -425,6 +428,7 @@ namespace RST_File_Generator
             }
             catch (Exception ex)
             {
+                RST_File_Writer.Close();
                 MessageBox.Show(ex.Message);
             }
             return;
@@ -466,8 +470,27 @@ namespace RST_File_Generator
         }
         private void BT_Clear_All_Click(object sender, EventArgs e)
         {
-            prev_form.functionform_reload();
-            this.Close();
+            //텍스트부분 지우기
+            TF_FunctionName.Text = "";
+            TF_Prefix.Text = "";
+            TF_Return_Type.Text = "";
+            RT_Return_Meaning.Text = "";
+            RT_Description_text.Text = "";
+
+            for (int i = 0; i < 9; i++)
+            {
+                TF_Param_DataType_List[i].Text = "";
+                RT_Param_Description_List[i].Text = "";
+                TF_Param_Name_List[i].Text = "";
+            }
+
+            // Additional Info 리스트 지우기
+            Additional_Info_List.Clear();
+            Additional_Info_ID = 0;
+            LB_Additional_Info.Items.Clear();
+
+            //prev_form.functionform_reload();
+            //this.Close();
         }
         #endregion
 
